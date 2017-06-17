@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { WorkoutsService } from '../../app/services/workout.service';
 import { WorkoutDetailsPage } from "../workout-details/workout-details";
+import { Workout } from '../../app/shared/workout.model';
 
 @Component({
   selector: 'workouts',
@@ -11,7 +12,7 @@ import { WorkoutDetailsPage } from "../workout-details/workout-details";
 
 export class WorkoutsPage implements OnInit{
 
-  public workouts;
+  public workouts: Workout[];
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -20,6 +21,13 @@ export class WorkoutsPage implements OnInit{
 
   ngOnInit() {
     this.workouts = this._workoutsService.getWorkouts();
+    this._workoutsService.workoutsChanged
+      .subscribe(
+        (workouts: Workout[]) => {
+          this.workouts = workouts;
+        }
+      );
+    console.log('on init workouts');
     console.log(this.workouts);
   }
 
@@ -27,6 +35,5 @@ export class WorkoutsPage implements OnInit{
     this.navCtrl.push(WorkoutDetailsPage, {
       workout: workout
     });
-    console.log(workout);
   }
 }

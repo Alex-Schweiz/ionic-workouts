@@ -1,17 +1,13 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Home workouts page
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-
-<ion-content>
-  <ion-list>
-    <ion-list-header>Your workouts</ion-list-header>
-    <ion-item *ngFor="let workout of workouts" (click)="workoutSelected($event, workout)">
+<div padding>
+  <h1 text-center>Latest activity</h1>
+  <ion-list margin-top>
+    <ion-item
+      *ngFor="let workout of workouts"
+      (click)="workoutSelected($event, workout)"
+      margin-bottom
+    >
       <ion-icon name="bicycle" item-left></ion-icon>
-      {{workout.title}} - {{workout.repeats}} on {{workout.date}}
+      {{workout.title}} - {{workout.repeats}} <p float-right> on {{workout.date}}</p>
     </ion-item>
   </ion-list>
-</ion-content>
+</div>
