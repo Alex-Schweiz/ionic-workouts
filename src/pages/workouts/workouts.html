@@ -8,6 +8,10 @@
 
 <ion-content>
   <ion-list>
-    <ion-list-header>Welcome to our page</ion-list-header>
+    <ion-list-header>Your workouts</ion-list-header>
+    <ion-item *ngFor="let workout of workouts" (click)="workoutSelected($event, workout)">
+      <ion-icon name="bicycle" item-left></ion-icon>
+      {{workout.title}} - {{workout.repeats}} on {{workout.date}}
+    </ion-item>
   </ion-list>
 </ion-content>
