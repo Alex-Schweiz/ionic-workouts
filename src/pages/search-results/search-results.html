@@ -1,0 +1,45 @@
+<div overflow-scroll="true">
+  <div margin-left margin-right>
+    <button ion-button (click)="goToSearchMaster()">< Back</button>
+    <ion-item>
+      <ion-label>type</ion-label>
+      <ion-select [(ngModel)]="type">
+        <ion-option value="">No selection</ion-option>
+        <ion-option value="haircut">Haircut</ion-option>
+        <ion-option value="barberwork">Barber work</ion-option>
+        <ion-option value="moustache">Moustache</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>City</ion-label>
+      <ion-select [(ngModel)]="city">
+        <ion-option value="">No selection</ion-option>
+        <ion-option value="NY">New York</ion-option>
+        <ion-option value="MT">Montreal</ion-option>
+        <ion-option value="QC">Quebec city</ion-option>
+      </ion-select>
+    </ion-item>
+  </div>
+  <div margin-left margin-right>
+    <h1>Selected type is {{type}}</h1>
+    <h1>Selected city is {{city}}</h1>
+  </div>
+
+
+    <div margin-left margin-right>
+      <div margin-top
+           *ngFor="let beauty of services | beautyfilter:type | cityfilter:city "
+           style="border: 1px solid black"
+      >
+        <div margin-left>
+          <h3>Title: {{beauty.title}}</h3>
+          <h4>Service : {{beauty.service}}</h4>
+          <h4>City : {{beauty.city}}</h4>
+        </div>
+      </div>
+    </div>
+
+
+
+</div>
+

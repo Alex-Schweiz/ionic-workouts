@@ -3,25 +3,27 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-import { AboutPage } from '../pages/about/about';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { StarterPage } from '../pages/starter-page/starter-page';
+import { SearchMasterPage } from '../pages/search-master/search-master';
+import { SearchResultsPage } from '../pages/search-results/search-results';
 
-import { WorkoutsPage } from '../pages/workouts/workouts';
-import { AddWorkout } from '../pages/add-workout/add-workout';
-import { WorkoutDetailsPage } from '../pages/workout-details/workout-details';
+import { cityFilterPipe } from './pipes/city.pipe';
+import { beautyFilterPipe } from './pipes/beauty-service.pipe';
 
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
     TabsPage,
-    WorkoutsPage,
-    AddWorkout,
-    WorkoutDetailsPage
+    StarterPage,
+    SearchMasterPage,
+    SearchResultsPage,
+    cityFilterPipe,
+    beautyFilterPipe,
   ],
   imports: [
     BrowserModule,
@@ -30,11 +32,10 @@ import { WorkoutDetailsPage } from '../pages/workout-details/workout-details';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
     TabsPage,
-    WorkoutsPage,
-    AddWorkout,
-    WorkoutDetailsPage
+    StarterPage,
+    SearchMasterPage,
+    SearchResultsPage,
   ],
   providers: [
     StatusBar,
